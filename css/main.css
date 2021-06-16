@@ -1,0 +1,215 @@
+/*use * for selcet everthing set box sizing to include paddinga nd margin*/
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+body {
+    /*    copy from google font*/
+    font-family: 'Open Sans', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    /*    body become flex container */
+    display: flex;
+    flex-direction: column;
+    /*  if u want ot footer stick in the footer ,  set body height in 100 vertical height full height and set body to full height to window*/
+    height: 100vh;
+}
+
+h1,
+h2 {
+    font-weight: 300;
+}
+
+p {
+    line-height: 1.5em;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/*for default anchor style */
+a {
+    color: #1e278d;
+    text-decoration: none;
+}
+
+/*when u move mouse over link*/
+a:hover {
+    color: #6f3090;
+    text-decoration: underline;
+}
+
+/*when link is active*/
+a:active {
+    color: #7f892c;
+}
+
+header {
+    /*    dwnld image from picsum.phoptos use frst link random image*/
+    background: linear-gradient(to right bottom, rgba(32, 117, 170, 0.78), rgba(145, 75, 145, 0.38)), url(../image/header.jpg);
+    background-size: cover;
+    /*  WHICH IMAGE PART TO SHOW WHEN U RESIZE THE WINDOW*/
+    background-position: center;
+    height: 400px;
+    /*    header becomes a flesx container */
+    display: flex;
+    /*    display child elemnts vertically */
+    flex-direction: column;
+    /* if u use row instead of column then it looks diffrent*/
+    /*    main axis  justify content control vertiacl possition*/
+    justify-content: center;
+    /*    cross axis align itme control horizontal possition*/
+    align-items: center;
+    /*    making header text 40% bigger*/
+    font-size: 1.4em;
+}
+
+/* for everything inside the header*/
+header * {
+    margin: 0;
+    font-weight: 900;
+    /* to set h1 font size 900  */
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+footer {
+    background-color: grey;
+    color: white;
+    padding: 20px 0;
+    /*   if page have any space then it  push footer to bottom of the page*/
+    margin-top: auto;
+    /*    if u use margin bottom then it will show space bottom if there any space in page*/
+}
+
+
+.media-wrapper figure {
+    /*    remove default margin on figure element*/
+    margin: 0;
+    /*  display flex so that image can strtch   */
+    display: flex;
+
+    /* hide image outside of figure when scaled   */
+    overflow: hidden;
+
+}
+
+.media-wrapper {
+    background: lightblue;
+    /*    for top and bottom margin */
+    margin: 20px 0;
+
+}
+
+.media-wrapper h1 {
+    font-weight: 500;
+    letter-spacing: 0.9px;
+    margin: 0;
+
+}
+
+.media-wrapper p {
+    line-height: 1.5em;
+}
+
+.media-wrapper .inner {
+
+
+/*   set the min height to image*/
+    min-height: 350px;
+    /*   alow image to scale vertically to fill avlaible space */
+    flex: 1;
+    /*    500ms is equal to .5s*/
+    transition: 1s;
+
+}
+
+.media-wrapper figcaption {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.media-wrapper figcaption a {
+    color: rgba(12, 14, 15, 0.69);
+    border: solid 1px;
+    padding: 10px;
+    background: grey;
+    display: inline-block;
+    transition: 1.6s;
+/*    align button to left */
+    align-self: flex-start;
+    /*  if screen go big anchor always be in bottom  */
+    margin-top: auto;
+
+}
+
+.media-wrapper figcaption a:hover {
+    background: #957373;
+
+}
+
+.media-wrapper .inner:hover {
+    /*  whne u mouse over the image increase width and heght */
+    transform: scale(1.2);
+
+}
+
+.media-wrapper .inner.one {
+    background: url(http://picsum.photos/801);
+    background-position: center;
+    background-size: cover;
+}
+
+.media-wrapper .inner.two {
+    background: url(http://picsum.photos/802);
+    background-position: center;
+    background-size: cover;
+}
+
+.media-wrapper .inner.three {
+    background: url(http://picsum.photos/803);
+    background-position: center;
+    background-size: cover;
+}
+
+
+@media(min-width:600px) {
+    
+/*    turn on flrx to create horizontal cards */
+    .media-wrapper {
+        display: flex;
+    }
+  
+    
+/*    set width of image */
+    .media-wrapper figure {
+        flex: 0 0 50%;
+        /*  here flex-grow : 0, flex-shrink:0, flex-basis:50% */
+    }
+    
+/* switch direction for reveres card */
+    .reversed {
+        flex-direction: row-reverse;
+    }
+
+}
+
+
+@media(min-width:800px) {
+
+    .media-wrapper figure {
+        flex: 0 0 30%;
+    }
+}
